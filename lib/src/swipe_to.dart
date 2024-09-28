@@ -16,13 +16,13 @@ class SwipeTo extends StatefulWidget {
   final Duration animationDuration;
 
   /// Icon that will be displayed beneath child widget when swipe right
-  final IconData iconOnRightSwipe;
+  final Widget iconOnRightSwipe;
 
   /// Widget that will be displayed beneath child widget when swipe right
   final Widget? rightSwipeWidget;
 
   /// Icon that will be displayed beneath child widget when swipe left
-  final IconData iconOnLeftSwipe;
+  final Widget iconOnLeftSwipe;
 
   /// Widget that will be displayed beneath child widget when swipe right
   final Widget? leftSwipeWidget;
@@ -61,9 +61,9 @@ class SwipeTo extends StatefulWidget {
     required this.child,
     this.onRightSwipe,
     this.onLeftSwipe,
-    this.iconOnRightSwipe = Icons.reply,
+    this.iconOnRightSwipe = const Icon(Icons.reply),
     this.rightSwipeWidget,
-    this.iconOnLeftSwipe = Icons.reply,
+    this.iconOnLeftSwipe = const Icon(Icons.reply),
     this.leftSwipeWidget,
     this.iconSize = 26.0,
     this.iconColor,
@@ -185,25 +185,13 @@ class _SwipeToState extends State<SwipeTo> with SingleTickerProviderStateMixin {
                 opacity: _leftIconAnimation.value,
                 duration: widget.animationDuration,
                 curve: Curves.decelerate,
-                child: widget.rightSwipeWidget ??
-                    Icon(
-                      widget.iconOnRightSwipe,
-                      size: widget.iconSize,
-                      color:
-                          widget.iconColor ?? Theme.of(context).iconTheme.color,
-                    ),
+                child: widget.rightSwipeWidget ?? widget.iconOnRightSwipe,
               ),
               AnimatedOpacity(
                 opacity: _rightIconAnimation.value,
                 duration: widget.animationDuration,
                 curve: Curves.decelerate,
-                child: widget.leftSwipeWidget ??
-                    Icon(
-                      widget.iconOnLeftSwipe,
-                      size: widget.iconSize,
-                      color:
-                          widget.iconColor ?? Theme.of(context).iconTheme.color,
-                    ),
+                child: widget.leftSwipeWidget ?? widget.iconOnLeftSwipe,
               ),
             ],
           ),

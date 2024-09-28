@@ -117,11 +117,11 @@ class _AppHomeState extends State<AppHome> {
                   child: const MessageViewWidget(
                     label: '👈🏿 Swipe me Left OR Swipe me right 👉🏿 ',
                   ),
-                  iconOnLeftSwipe: Icons.arrow_forward,
+                  iconOnLeftSwipe: const Icon(Icons.arrow_forward),
                   leftSwipeWidget: const FlutterLogo(
                     size: 30.0,
                   ),
-                  iconOnRightSwipe: Icons.arrow_back,
+                  iconOnRightSwipe: const Icon(Icons.arrow_back),
                   rightSwipeWidget: const FlutterLogo(
                     size: 30.0,
                   ),

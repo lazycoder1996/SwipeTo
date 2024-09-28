@@ -61,8 +61,8 @@ class _ListHomeState extends State<ListHome> {
                   children: snapshot.data!.map((name) {
                     return SwipeTo(
                       key: UniqueKey(),
-                      iconOnLeftSwipe: Icons.arrow_forward,
-                      iconOnRightSwipe: Icons.arrow_back,
+                      iconOnLeftSwipe: const Icon(Icons.arrow_forward),
+                      iconOnRightSwipe: const Icon(Icons.arrow_back),
                       onRightSwipe: (details) {
                         log("\n Left Swipe Data --> $name");
                       },
